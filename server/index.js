@@ -3,6 +3,7 @@ var app = express()
 var cors = require('cors')
 var logger = require('morgan')
 var mongoose = require('mongoose')
+var routes = require('./src/routes')
 
 app.set('case sensitive routing', true);
 
@@ -14,6 +15,8 @@ app.set('case sensitive routing', true);
 app.use(cors())
 app.use(express.json()) // 요청본문 파싱(request body 파싱)
 app.use(logger('tiny'))
+
+app.use('/api', routes)
 
 const CONNECT_URL = 'mongodb://localhost:27017/syleemomo'
 
