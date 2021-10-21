@@ -13,6 +13,7 @@ app.set('case sensitive routing', true);
 // }
 
 app.use(cors())
+app.use(express.urlencoded({extended: true})) // form data 의 request body 파싱
 app.use(express.json()) // 요청본문 파싱(request body 파싱)
 app.use(logger('tiny'))
 
@@ -28,7 +29,11 @@ mongoose.connect(CONNECT_URL, { // Mongo DB 서버 연결
 
 
 app.get('/hello', (req, res) => {
-    res.render("index")
+    res.sendFile(__dirname+'/public/index.html')
+})
+app.post('/hello', (req, res) => {
+    console.log(req.body)
+    res.redirect('/hello')
 })
 
 app.use( (err, req, res, next) => { // 서버 내부 오류 처리 
