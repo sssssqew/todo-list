@@ -7,19 +7,19 @@ var routes = require('./src/routes')
 
 app.set('case sensitive routing', true);
 
-// var corsOptions = { // CORS 옵션 
-//     origin: 'http://localhost:3000', 
-//     credentials: true 
-// }
+var corsOptions = { // CORS 옵션 
+    origin: '*', 
+    credentials: true 
+}
 
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(express.urlencoded({extended: true})) // form data 의 request body 파싱
 app.use(express.json()) // 요청본문 파싱(request body 파싱)
 app.use(logger('tiny'))
 
 app.use('/api', routes)
 
-const CONNECT_URL = 'mongodb://localhost:27017/syleemomo'
+const CONNECT_URL = 'mongodb://localhost:27017/kor_dic_db'
 
 mongoose.connect(CONNECT_URL, { // Mongo DB 서버 연결 
     useNewUrlParser: true, 
