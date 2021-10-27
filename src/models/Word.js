@@ -10,7 +10,5 @@ const wordSchema = mongoose.Schema({
 })
 
 const Word = mongoose.model('Word', wordSchema, 'kor_dic_coll') 
-// Word => words
-//  Kor_dic_coll   => kor_dic_colls
 
 module.exports = Word;

@@ -16,10 +16,8 @@ WordRouter.route('/(:word)?').get( async (req, res) => {
         }
     }else{
         console.log(word)
-        console.log(`word database: ${Word}`)
-        // 데이터베이스에서 전체 단어 검색
         try{
-            words = await Word.find()
+            words = await Word.find() // 데이터베이스에서 전체 단어 검색
         }catch(e){
             console.log(e) 
         }

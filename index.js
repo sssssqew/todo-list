@@ -28,9 +28,9 @@ mongoose.connect(CONNECT_URL, { // Mongo DB 서버 연결
 .catch(e => console.log(`failed to connect mongodb: ${e}`))
 
 
-app.get('/hello', (req, res) => {
-    res.sendFile(__dirname+'/public/index.html')
-})
+// app.get('/hello', (req, res) => {
+//     res.sendFile(__dirname+'/public/index.html')
+// })
 app.post('/hello', (req, res) => {
     console.log(req.body)
     res.redirect('/hello')
